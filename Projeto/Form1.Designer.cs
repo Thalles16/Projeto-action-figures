@@ -28,7 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             panel1 = new Panel();
+            linkLabelCadastro = new LinkLabel();
             btnEntrar = new Button();
             txtSenha = new TextBox();
             txtEmail = new TextBox();
@@ -39,6 +41,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(linkLabelCadastro);
             panel1.Controls.Add(btnEntrar);
             panel1.Controls.Add(txtSenha);
             panel1.Controls.Add(txtEmail);
@@ -47,12 +50,23 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 450);
+            panel1.Size = new Size(495, 378);
             panel1.TabIndex = 0;
+            // 
+            // linkLabelCadastro
+            // 
+            linkLabelCadastro.AutoSize = true;
+            linkLabelCadastro.Location = new Point(207, 316);
+            linkLabelCadastro.Name = "linkLabelCadastro";
+            linkLabelCadastro.Size = new Size(69, 15);
+            linkLabelCadastro.TabIndex = 5;
+            linkLabelCadastro.TabStop = true;
+            linkLabelCadastro.Text = "Cadastre-se";
+            linkLabelCadastro.LinkClicked += linkLabelCadastro_LinkClicked;
             // 
             // btnEntrar
             // 
-            btnEntrar.Location = new Point(427, 137);
+            btnEntrar.Location = new Point(207, 264);
             btnEntrar.Name = "btnEntrar";
             btnEntrar.Size = new Size(75, 23);
             btnEntrar.TabIndex = 4;
@@ -62,44 +76,52 @@
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(200, 191);
+            txtSenha.Location = new Point(155, 209);
             txtSenha.Name = "txtSenha";
-            txtSenha.Size = new Size(100, 23);
+            txtSenha.Size = new Size(211, 23);
             txtSenha.TabIndex = 3;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(200, 95);
+            txtEmail.Location = new Point(155, 161);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(100, 23);
+            txtEmail.Size = new Size(211, 23);
             txtEmail.TabIndex = 2;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(100, 191);
+            label2.Font = new Font("Arial", 12F, FontStyle.Bold | FontStyle.Italic);
+            label2.Location = new Point(66, 214);
             label2.Name = "label2";
-            label2.Size = new Size(39, 15);
+            label2.Size = new Size(62, 18);
             label2.TabIndex = 1;
-            label2.Text = "Senha";
+            label2.Text = "Senha:";
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(100, 95);
+            label1.Font = new Font("Arial", 12F, FontStyle.Bold | FontStyle.Italic);
+            label1.Location = new Point(66, 166);
             label1.Name = "label1";
-            label1.Size = new Size(36, 15);
+            label1.Size = new Size(55, 18);
             label1.TabIndex = 0;
-            label1.Text = "Email";
+            label1.Text = "Email:";
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(495, 378);
             Controls.Add(panel1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
+            MinimizeBox = false;
             Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Form1";
+            Load += Form1_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
@@ -113,5 +135,6 @@
         private Label label2;
         private Label label1;
         private Button btnEntrar;
+        private LinkLabel linkLabelCadastro;
     }
 }

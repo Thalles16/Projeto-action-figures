@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 
 namespace Projeto
@@ -12,12 +8,31 @@ namespace Projeto
         // String de conexão com o banco de dados
         private string conexaoBanco = "Server=localhost; Database=loja_actionfigures; Uid=root; Pwd=;";
 
-        // Método para abrir e retornar a conexão
+        private MySqlConnection conexao;
+
+        // Abre e retorna a conexão
         public MySqlConnection Conectar()
         {
-            MySqlConnection conexao = new MySqlConnection(conexaoBanco);
-            conexao.Open();
+            if (conexao == null)
+            {
+                conexao = new MySqlConnection(conexaoBanco);
+            }
+
+            if (conexao.State != System.Data.ConnectionState.Open)
+            {
+                conexao.Open();
+            }
+
             return conexao;
+        }
+
+        // Fecha a conexão aberta
+        public void Desconectar()
+        {
+            if (conexao != null && conexao.State == System.Data.ConnectionState.Open)
+            {
+                conexao.Close();
+            }
         }
     }
 }

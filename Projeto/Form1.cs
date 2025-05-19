@@ -38,7 +38,7 @@ namespace Projeto
                     MessageBox.Show("Login realizado com sucesso!");
 
                     // Abre a tela principal e fecha a de login
-                    Form menu = new MenuPrincipal(); // crie depois!
+                    Form menu = new MenuPrincipal();
                     menu.Show();
                     this.Hide();
                 }
@@ -53,6 +53,23 @@ namespace Projeto
             {
                 MessageBox.Show("Erro: " + ex.Message);
             }
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+
+        }
+
+        private void linkLabelCadastro_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            Form LoginForm = new LoginForm();
+            LoginForm.Show();
+            this.Hide();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -28,5 +28,11 @@ namespace Projeto
             CadastroProduto form = new CadastroProduto(); // será criado em breve
             form.Show();
         }
+
+        private void consultaDeCEPToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultaCep consultaCep = new frmConsultaCep();
+            consultaCep.ShowDialog();
+        }
     }
 }

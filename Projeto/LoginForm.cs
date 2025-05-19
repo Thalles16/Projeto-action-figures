@@ -17,24 +17,56 @@ namespace Projeto
             InitializeComponent();
         }
 
-        private void btnLogin_Click(object sender, EventArgs e)
+        private void btnCadastro_Click(object sender, EventArgs e)
         {
             string email = txtEmail.Text;
             string senha = txtSenha.Text;
 
-            UsuarioDAO dao = new UsuarioDAO();
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(senha))
+            {
+                MessageBox.Show("Preencha todos os campos.");
+                return;
+            }
 
-            if (dao.Autenticar(email, senha))
+            Usuario usuario = new Usuario();
+            usuario.Email = email;
+            usuario.Senha = senha;
+
+            UsuarioDAO dao = new UsuarioDAO();
+            dao.Inserir(usuario); // método que você deve ter no UsuarioDAO
+
+            MessageBox.Show("Cadastro realizado com sucesso!");
+
+            this.Hide(); // Fecha esta tela
+            Form1 telaLogin = new Form1(); // Abre o Form1 (tela de login)
+            telaLogin.Show();
+        }
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            // Sua lógica de login aqui
+            string email = txtEmail.Text;
+            string senha = txtSenha.Text;
+
+            if (string.IsNullOrEmpty(email) || string.IsNullOrEmpty(senha))
             {
-                MessageBox.Show("Login realizado com sucesso!");
-                this.Hide();
-                MenuPrincipal menu = new MenuPrincipal();
-                menu.Show();
+                MessageBox.Show("Preencha todos os campos.");
+                return;
             }
-            else
-            {
-                MessageBox.Show("Usuário ou senha inválidos.");
-            }
+
+            Usuario usuario = new Usuario();
+            usuario.Email = email;
+            usuario.Senha = senha;
+
+            UsuarioDAO dao = new UsuarioDAO();
+            dao.Inserir(usuario); // método que você deve ter no UsuarioDAO
+
+            MessageBox.Show("Cadastro realizado com sucesso!");
+
+            this.Hide(); // Fecha esta tela
+            Form1 telaLogin = new Form1(); // Abre o Form1 (tela de login)
+            telaLogin.Show();
         }
     }
 }
+    
+
